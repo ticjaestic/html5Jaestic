@@ -5,10 +5,42 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Proyecto Jaestic</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="js/mustache.js" ></script>
+        <script>
+            var producto, template;
+      //Trabajando con listas y MustacheJS
+      //Creamos una lista de productos
+      producto = {
+        productos: [
+          { titulo: "prod. uno" },
+          { titulo: "prod. dos" },
+          { titulo: "prod. tres" }
+        ]
+      };
+ 
+      /*
+        creamos la vista o el output de lo que queremos mostrar en pantalla,
+        aqui recorremos todo el json en busca de "productos" y si valor "titulo"
+        si es contrado lo agregamos a la vista si no es encontrado mandamos
+        el mensaje de "No encontramos ningun producto"
+      */
+      template = "{{#productos}} "+
+                    "Lista de productos {{titulo}}!" +
+                  "{{/productos}} "+
+                  "{{^productos}}" +
+                    "No encontramos ningun producto" +
+                  "{{/productos}}";
+ 
+      function loadtemp(){
+        //le pasamos el template y la informacion de este a mustache
+        var output = Mustache.render(template, producto);
+        document.getElementById('producto').innerHTML = output;
+      }
+        </script>
     </head>
-    <body>
-        <div>TODO write content</div>
+    <body onload="loadtemp()" >
+        <p id="producto"></p>
     </body>
 </html>
