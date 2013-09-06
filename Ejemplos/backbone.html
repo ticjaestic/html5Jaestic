@@ -1,0 +1,25 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejemplo BacBoneJS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="../js/backbone-min.js"></script>
+        <script src="../js/underscore-min.js"></script>
+        <script src="../js/jquery-2.0.3.min.js"></script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <script>
+            var Usuario = Backbone.Model.extend({});
+            var miUsuario1 = new Usuario({
+                nombre: "Erick"
+            });
+            miUsuario1.url ="/usuarios";
+            miUsuario1.save();
+        </script>
+    </body>
+</html>
